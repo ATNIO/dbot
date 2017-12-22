@@ -1,0 +1,5 @@
+node_modules
+.DS_Store
+package-lock.json
+./worker/package-lock.json
+./worker/service-account.json
