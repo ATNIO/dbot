@@ -4,7 +4,7 @@ const URaidenBilling = require("../utils/raiden/uraiden/uraidenBilling")
 const uraidenServerUrl = 'http://127.0.0.1:5000';
 const bill = new URaidenBilling(uraidenServerUrl);
 const API = require('../worker/API/index');
-const config = require('../worker/config.json')
+const config = require('../../config/config.json')
 
 async function callAI(params) {
   let ai_id = Buffer.from(params.ai_id, 'utf8').toString("hex")    
