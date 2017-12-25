@@ -3,4 +3,9 @@ node_modules
 package-lock.json
 service-account.json
 config.json
-
+microraiden/env/
+microraiden/key
+microraiden/password
+__pycache__/
+*.py[cod]
+.vscode/
