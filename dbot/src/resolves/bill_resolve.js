@@ -1,7 +1,7 @@
 'use strict';
 
 const URaidenBilling = require("../utils/raiden/uraiden/uraidenBilling")
-const uraidenServerUrl = 'http://127.0.0.1:5000';
+const uraidenServerUrl = 'http://localhost:5000';
 const bill = new URaidenBilling(uraidenServerUrl);
 
 async function getPrice(params) {

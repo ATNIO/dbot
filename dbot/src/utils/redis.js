@@ -7,7 +7,7 @@ const {
 
 const redis = require("redis");
 const redisConfig = {
-  host:'106.14.207.120',
+  host:'redis',
   port:'6379'
 }
 

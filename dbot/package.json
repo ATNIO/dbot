@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node src/server.js",
     "build": "rm -rf dist && npx babel src --out-dir dist",
-    "copy": "cp -r dist/ ../docker/dbot/dist/"
+    "copy": "cp -r ../dbot/ ../docker/dbot/"
   },
   "repository": {
     "type": "git",

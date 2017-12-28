@@ -1,6 +1,6 @@
 'use strict';
 const rp = require('request-promise')
-const uraidenServerUrl = 'http://127.0.0.1:5000';
+const uraidenServerUrl = 'http://localhost:5000';
 
 async function getChannels(sender, block, status) {
   let uri = `${uraidenServerUrl}/api/1/channels/${sender}`;

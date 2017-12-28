@@ -9,3 +9,4 @@ microraiden/password
 __pycache__/
 *.py[cod]
 .vscode/
+docker/dbot/
