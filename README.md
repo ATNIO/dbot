@@ -12,7 +12,7 @@ $ pip install -e microraiden
 $ python3 -m server --private-key key --private-key-password-file password --rpc-provider http://118.31.18.101:4045 start
 ~~~
 
-##docker
+## docker
 
 ~~~
 $ cd docker

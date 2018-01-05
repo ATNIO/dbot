@@ -19,4 +19,3 @@ async function callAI(params) {
 module.exports = {
   callAI
 }
-

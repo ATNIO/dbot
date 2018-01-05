@@ -1,0 +1,37 @@
+{
+  "name": "dbot",
+  "version": "1.0.0",
+  "description": "establish AI services",
+  "main": "server.js",
+  "scripts": {
+    "start": "babel-node src/server.js",
+    "build": "rm -rf dist && npx babel src --out-dir dist",
+    "copy": "cp -r ../dbot/ ../docker/dbot/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ATNIO/dbot.git"
+  },
+  "keywords": [
+    "dbot",
+    "AI",
+    "urainden"
+  ],
+  "author": "ATNIO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ATNIO/dbot/issues"
+  },
+  "homepage": "https://github.com/ATNIO/dbot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "redis": "^2.8.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
