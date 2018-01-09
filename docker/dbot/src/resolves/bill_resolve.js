@@ -1,8 +1,8 @@
 'use strict';
 
 const URaidenBilling = require("../utils/raiden/uraiden/uraidenBilling")
-const uraidenServerUrl = 'http://localhost:5000';
-const bill = new URaidenBilling(uraidenServerUrl);
+const config = require('../../config/config.json')
+const bill = new URaidenBilling(config.URAIDEN_URL);
 
 async function getPrice(params) {
   let ai_id = Buffer.from(params.ai_id, 'utf8').toString("hex")
