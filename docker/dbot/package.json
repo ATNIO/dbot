@@ -4,8 +4,7 @@
   "description": "establish AI services",
   "main": "server.js",
   "scripts": {
-    "start": "babel-node src/server.js",
-    "build": "rm -rf dist && npx babel src --out-dir dist",
+    "start": "node src/server.js",
     "copy": "cp -r ../dbot/ ../docker/dbot/"
   },
   "repository": {
@@ -29,9 +28,5 @@
     "redis": "^2.8.0",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
   }
 }

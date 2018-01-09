@@ -9,3 +9,6 @@ microraiden/password
 __pycache__/
 *.py[cod]
 .vscode/
+docker/dbot/
+docker/uraiden/key
+docker/uraiden/password
