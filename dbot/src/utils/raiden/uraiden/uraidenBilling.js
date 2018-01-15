@@ -14,7 +14,11 @@ class URaidenBilling {
 
   async bill(ai_id, sender, receiver, block, balance, price, sign) {
     let fee = await this.getPrice(ai_id, sender);
-    console.log("fee:",fee); 
+    console.log("fee:",fee);     
+    if(fee == 0){
+      await this._charge.resetToken(fee, ai_id, sender);
+      return true;
+    }
     if((+price) < (+fee)) throw 'price changed';  
     let newBalance = (+balance) + (+price);
     let res = await this.transfer(sender, block, newBalance, sign);
