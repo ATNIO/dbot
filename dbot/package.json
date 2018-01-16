@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
-    "copy": "rm -rf ../docker/dbot/ && cp -r ../dbot/ ../docker/dbot/"
+    "copy": "rm -rf ../docker/dbot && cp -rv ../dbot ../docker/dbot/"
   },
   "repository": {
     "type": "git",

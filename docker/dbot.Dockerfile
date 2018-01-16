@@ -7,6 +7,9 @@ WORKDIR /dbot
 
 COPY dbot /dbot
 
+RUN npm i
+
 EXPOSE 3000
 
 CMD ["node", "src/server.js"]
+
