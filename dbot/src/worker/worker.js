@@ -5,8 +5,8 @@ const Api = require('./API');
 
 module.exports = class monitor {
 
-  constructor(aiName) {
-    this.aiName = aiName;
+  constructor() {
+    this.aiName = config.AI_NAME;
     this.config = config;
     this.api = new Api(this.config);
     this.private_key = config.PRIVATE_KEY;    

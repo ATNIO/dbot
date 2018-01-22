@@ -16,5 +16,5 @@ app.use('/ai', aiRouter);
 app.listen(3000, () => console.log('Dbot listening on port 3000!'))
 
 const monitor = require("./worker/worker")
-let worker = new monitor("XIAO_I")
+let worker = new monitor()
 worker.run();
