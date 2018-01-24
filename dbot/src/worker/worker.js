@@ -2,6 +2,7 @@ const Web3 = require('web3');
 const config = require('../../config/config.json')
 const biz_artifacts = require('../../config/contracts/AIBusinessController.json');
 const Api = require('./API');
+const sendTx = require("./sendTx")
 
 module.exports = class monitor {
 
@@ -9,7 +10,7 @@ module.exports = class monitor {
     this.aiName = config.AI_NAME;
     this.config = config;
     this.api = new Api(this.config);
-    this.private_key = config.PRIVATE_KEY;    
+    this.private_key = config.PRIVATE_KEY;
     this.web3 = new Web3(config.PROVIDER);
     this.ownerAccount = this.web3.eth.accounts.privateKeyToAccount("0x" + this.private_key);
     this.owner = this.ownerAccount.address.toLowerCase();
@@ -17,7 +18,7 @@ module.exports = class monitor {
     this.biz = new this.web3.eth.Contract(biz_artifacts.abi, config.BIZ);
     this.biz.options.from = this.owner;
     this.biz.options.gas = config.gas;
-    this.biz.options.gasPrice = config.gasPrice; 
+    this.biz.options.gasPrice = config.gasPrice;
   }
 
   async run() {
@@ -36,23 +37,20 @@ module.exports = class monitor {
         if (aiId === aiNameTemp) {
           let callId = parseInt(res.returnValues._callID);
           try {
-            this.api.query(args).then( async (res) => {
+            this.api.query(args).then(async(res) => {
               console.log("res: ", res);
-              this.web3.eth.personal.unlockAccount(this.owner, config.password);
               if (res != null) {
                 const dataResult = JSON.stringify(res);
                 console.log("dataResult: ", dataResult);
-                let receipt = await this.biz.methods.callFundsDeduct(aiNameTemp, callId, true, dataResult.toString())
-                  .send((err, hash) => {
-                    if (err) console.error(err);
-                    console.log(`hash:${hash}`);
-                  })
+                let receipt = await sendTx(this.web3, this.biz, 'callFundsDeduct', [aiNameTemp, callId, true, dataResult.toString()], (err, hash) => {
+                  if (err) console.error(err);
+                  console.log(`hash:${hash}`);
+                })
               } else {
-                let receipt = await this.biz.methods.callFundsDeduct(aiNameTemp, callId, false, dataResult.toString())
-                  .send((err, hash) => {
-                    if (err) console.error(err);
-                    console.log(`hash:${hash}`);
-                  })
+                let receipt = await sendTx(this.web3, this.biz, 'callFundsDeduct', [aiNameTemp, callId, false, dataResult.toString()], (err, hash) => {
+                  if (err) console.error(err);
+                  console.log(`hash:${hash}`);
+                })
               }
             })
           } catch (e) {
