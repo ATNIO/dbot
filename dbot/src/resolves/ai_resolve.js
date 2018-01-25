@@ -10,7 +10,7 @@ async function callAI(params) {
   let res = await bill.bill(ai_id, params.sender, params.receiver, params.block, params.balance, params.price, params.sign)
   if(res === true){   
     let api = new API(config)
-    return await api.query({type:params.ai_id, question : params.input});
+    return await api.query(params.input);
   }
   return res;
 }
