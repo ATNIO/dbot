@@ -15,7 +15,14 @@ async function callAI(params) {
   return res;
 }
 
+async function callxiaoi(params) {
+  let api = new API(config)
+  console.log(params)
+  return await api.query(params);
+}
+
 module.exports = {
-  callAI
+  callAI,
+  callxiaoi
 }
 

@@ -21,4 +21,11 @@ aiRouter.post('/api/1/callAI', async (req, res) => {
   res.send(result)
 })
 
+aiRouter.post('/api/1/callxiaoi', async(req, res) => {
+  let params = req.body;
+  let result = await aiResolve.callxiaoi(params);
+  console.log(result)
+  res.send(result)
+})
+
 module.exports = aiRouter;
